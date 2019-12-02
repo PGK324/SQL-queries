@@ -1,0 +1,419 @@
+	Table Name : Employee EMP_ID As PRIMARY KEY
+EMPLOYEE_ID	FIRST_NAME	LAST_NAME	SALARY	JOINING_DATE	DEPARTMENT	 
+1	Venkatesh	S	100000	08/28/2015	 BANKING
+2	Ragavi	P	75000	08/28/2015	BUSINESS
+3	Gopinath	C	50000	03/02/2016	PHARMA
+4	Dinesh	G	50000	03/02/2016	INSURANCE
+5	Saibabu	E	40000	07/08/2017	SOFTWARE
+6	Hasan	S	29000	07/08/2017	MANUFACTURING
+7	Divya	P	33000	07/08/2017	HEALTHCARE
+8	Aravindan	R	40000	07/08/2017	HEALTHCARE
+9	Sathish	MD	45000	03/02/2016	AUTOMOBILE
+10	Prasanth	PKP	34000	03/02/2016	INSURANCE
+11	Vijay	R	25684	03/02/2016	BUSINESS
+12	Sivakumar	K	54789	03/02/2016	SOFTWARE
+								
+
+Table Name : Incentives
+ 
+EMPLOYEE_REF_ID	INCENTIVE_DATE	INCENTIVE_AMOUNT
+1	01-FEB-16	5000
+2	01-FEB-16	3000
+3	01-FEB-17	4000
+1	01-JAN-17	4500
+2	01-JAN-17	3500
+ 
+ 
+SQL Queries Interview Questions and Answers on "SQL Select" - Examples
+1.     Get all employee details from the employee table
+select * from emp
+1        Venkates     s   100000  2015-08-28       Banking
+2        Ragavi      p   75000   2015-08-28       Business
+3        Gopinath    c    50000   2016-02-03       Pharma
+4        Dinesh  g        50000   2016-02-03       insurance
+5        Saibabu e        40000   2017-08-07       software
+6        Hasan   s        29000   2017-08-07       manufacturing
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+9        Sathish md       45000   2016-02-03       automobile
+10       Prasanth pkp      34000   2016-02-03       insurance
+11       Vijay   r        25684   2016-02-03       Business
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+2. Get First_Name,Last_Name from employee table
+SELECT FirstName,LastName FROM emp;
+Venkatesh        s
+Ragavi  p
+Gopinath c
+Dinesh  g
+Saibabu e
+Hasan   s
+Divya   p
+Aravindan        r
+Sathish md
+Prasanth pkp
+Vijay   r
+Sivakumar        k
+ 
+3.Get First_Name from employee table using alias name “Employee Name”
+SELECT FirstName FROM emp;
+Venkatesh
+Ragavi
+Gopinath
+Dinesh
+Saibabu
+Hasan
+Divya
+Aravindan
+Sathish
+Prasanth
+Vijay
+Sivakumar
+ 
+ 
+4. Get First_Name from employee table in upper case
+SELECT UPPER(FirstName) FROM emp;
+VENKATESH
+RAGAVI
+GOPINATH
+DINESH
+SAIBABU
+HASAN
+DIVYA
+ARAVINDAN
+SATHISH
+PRASANTH
+VIJAY
+SIVAKUMAR
+ 
+5. Get First_Name from employee table in lower case
+SELECT LOWER(FirstName) FROM emp;
+venkatesh
+ragavi
+gopinath
+dinesh
+saibabu
+hasan
+divya
+aravindan
+sathish
+prasanth
+vijay
+sivakumar
+ 
+6. Get unique DEPARTMENT from employee table
+SELECT DISTINCT Department FROM emp;
+Banking
+Business
+Pharma
+insurance
+software
+manufacturing
+healthcare
+automobile
+ 
+7. Select first 3 characters of FIRST_NAME from EMPLOYEE
+SELECT SUBSTRING(FirstName,1,3) FROM emp;
+Ven
+Rag
+Gop
+Din
+Sai
+Has
+Div
+Ara
+Sat
+Pra
+Vij
+Siv
+ 
+8. Get position of 'a' in name 'ragavi' from employee table
+SELECT instr(FirstName,'a') FROM emp WHERE FirstName="Ragavi";
+2
+9. Get FIRST_NAME from employee table after removing white spaces from right side
+SELECT RTRIM(FirstName) FROM emp;
+Venkatesh
+Ragavi
+Gopinath
+Dinesh
+Saibabu
+Hasan
+Divya
+Aravindan
+Sathish
+Prasanth
+Vijay
+Sivakumar
+ 
+10. Get FIRST_NAME from employee table after removing white spaces from left side
+SELECT LTRIM(FirstName) FROM emp;
+Venkatesh
+Ragavi
+Gopinath
+Dinesh
+Saibabu
+Hasan
+Divya
+Aravindan
+Sathish
+Prasanth
+Vijay
+Sivakumar
+ 
+11. Get length of FIRST_NAME from employee table
+SELECT LENGTH(FirstName) FROM emp;
+9
+6
+8
+6
+7
+5
+5
+9
+7
+8
+5
+9
+ 
+12. Get First_Name from employee table after replacing 'a' with '$'
+SELECT REPLACE(FirstName, 'a','$') FROM emp;
+Venk$tesh
+R$g$vi
+Gopin$th
+Dinesh
+S$ib$bu
+H$s$n
+Divy$
+Ar$vind$n
+S$thish
+Pr$s$nth
+Vij$y
+Siv$kum$r
+
+jay   r        25684   2016-02-03       Business
+ 
+13. Get First_Name and Last_Name as single column from employee table separated by a '_'
+SELECT  FirstName||'-' || lastName FROM emp;
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+ 
+14. Get FIRST_NAME ,Joining year,Joining Month and Joining Date from employee table
+SELECT FirstName,YEAR (Joining_Date),MONTH(Joining_Date),DATE(Joining_Date) FROM emp;
+Venkatesh        2015     8        2015-08-28
+Ragavi  2015     8        2015-08-28
+Gopinath 2016     2        2016-02-03
+Dinesh  2016     2        2016-02-03
+Saibabu 2017     8        2017-08-07
+Hasan   2017     8        2017-08-07
+Divya   2017     8        2017-08-07
+Aravindan        2017     8        2017-08-07
+Sathish 2016     2        2016-02-03
+Prasanth 2016     2        2016-02-03
+Vijay   2016     2        2016-02-03
+Sivakumar        2016     2        2016-02-03
+ 
+Database SQL Queries Interview Questions and answers on "SQL Order By"
+15. Get all employee details from the employee table order by First_Name Ascending
+SELECT * FROM emp ORDER BY FirstName ASC;
+8        Aravindan        r        40000   2017-08-07       healthcare
+4        Dinesh  g        50000   2016-02-03       insurance
+7        Divya   p        33000   2017-08-07       healthcare
+3        Gopinath c        50000   2016-02-03       Pharma
+6        Hasan   s        29000   2017-08-07       manufacturing
+10       Prasanth pkp      34000   2016-02-03       insurance
+2        Ragavi  p        75000   2015-08-28       Business
+5        Saibabu e        40000   2017-08-07       software
+9        Sathish md       45000   2016-02-03       automobile
+12       Sivakumar        k        54789   2016-02-03       software
+1        Venkatesh        s        100000  2015-08-28       Banking
+11       Vijay   r        25684   2016-02-03       Business
+ 
+ 
+16. Get all employee details from the employee table order by First_Name descending
+SELECT * FROM emp ORDER BY FirstName DESC;
+11       Vijay   r        25684   2016-02-03       Business
+1        Venkatesh        s        100000  2015-08-28       Banking
+12       Sivakumar        k        54789   2016-02-03       software
+9        Sathish md       45000   2016-02-03       automobile
+5        Saibabu e        40000   2017-08-07       software
+2        Ragavi  p        75000   2015-08-28       Business
+10       Prasanth pkp      34000   2016-02-03       insurance
+6        Hasan   s        29000   2017-08-07       manufacturing
+3        Gopinath c        50000   2016-02-03       Pharma
+7        Divya   p        33000   2017-08-07       healthcare
+4        Dinesh  g        50000   2016-02-03       insurance
+8        Aravindan        r        40000   2017-08-07       healthcare
+ 
+17. Get all employee details from the employee table order by First_Name Ascending and Salary descending
+SELECT * FROM emp ORDER BY FirstName ASC, `SALARY` DESC;
+8        Aravindan        r        40000   2017-08-07       healthcare
+4        Dinesh  g        50000   2016-02-03       insurance
+7        Divya   p        33000   2017-08-07       healthcare
+3        Gopinath c        50000   2016-02-03       Pharma
+6        Hasan   s        29000   2017-08-07       manufacturing
+10       Prasanth pkp      34000   2016-02-03       insurance
+2        Ragavi  p        75000   2015-08-28       Business
+5        Saibabu e        40000   2017-08-07       software
+9        Sathish md       45000   2016-02-03       automobile
+12       Sivakumar        k        54789   2016-02-03       software
+1        Venkatesh        s        100000  2015-08-28       Banking
+11       Vijay   r        25684   2016-02-03       Business
+ 
+SQL Queries Interview Questions and Answers on "SQL Where Condition" - Examples
+18. Get employee details from employee table whose employee name is “Dinesh”
+SELECT * FROM emp WHERE FirstName="Dinesh";
+4        Dinesh  g        50000   2016-02-03       insurance
+19. Get employee details from employee table whose employee name are “Dinesh” and “vijay”
+SELECT * FROM emp WHERE FirstName="Dinesh" OR FirstName="Vijay";
+4        Dinesh  g        50000   2016-02-03       insurance
+11       Vijay   r        25684   2016-02-03       Business
+20. Get employee details from employee table whose employee name are not “Dinesh” and “vijay”
+SELECT * FROM emp WHERE  FirstName NOT IN ("Dinesh","Vijay");
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+3        Gopinath c        50000   2016-02-03       Pharma
+5        Saibabu e        40000   2017-08-07       software
+6        Hasan   s        29000   2017-08-07       manufacturing
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+9        Sathish md       45000   2016-02-03       automobile
+10       Prasanth pkp      34000   2016-02-03       insurance
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+SQL Queries Interview Questions and Answers on "SQL Wild Card Search" - Examples
+21. Get employee details from employee table whose first name starts with 's'
+SELECT * FROM emp WHERE FirstName LIKE 'S%';
+5        Saibabu e        40000   2017-08-07       software
+9        Sathish md       45000   2016-02-03       automobile
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+22. Get employee details from employee table whose first name contains 'v'
+SELECT * FROM emp WHERE FirstName LIKE '%V%';
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+11       Vijay   r        25684   2016-02-03       Business
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+ 
+23. Get employee details from employee table whose first name ends with 'n'
+SELECT * FROM emp WHERE FirstName LIKE '%n';
+6        Hasan   s        29000   2017-08-07       manufacturing
+8        Aravindan        r        40000   2017-08-07       healthcare
+ 
+SQL Queries Interview Questions and Answers on "SQL Pattern Matching" - Examples
+24. Get employee details from employee table whose first name ends with 'n' and name contains 4 letters
+6        Hasan   s        29000   2017-08-07       manufacturing
+8        Aravindan        r        40000   2017-08-07       healthcare
+ 
+25. Get employee details from employee table whose first name starts with 'J' and name contains 4 letters
+SELECT * FROM emp WHERE FirstName LIKE 'p%____';
+10       Prasanth pkp      34000   2016-02-03       insurance
+26. Get employee details from employee table who’s Salary greater than 60000
+SELECT*FROM emp WHERE SALARY>60000;
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+ 
+27. Get employee details from employee table who’s Salary less than 80000
+SELECT*FROM emp WHERE SALARY<60000;
+3        Gopinath c        50000   2016-02-03       Pharma
+4        Dinesh  g        50000   2016-02-03       insurance
+5        Saibabu e        40000   2017-08-07       software
+6        Hasan   s        29000   2017-08-07       manufacturing
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+9        Sathish md       45000   2016-02-03       automobile
+10       Prasanth pkp      34000   2016-02-03       insurance
+11       Vijay   r        25684   2016-02-03       Business
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+28. Get employee details from employee table who’s Salary between 50000 and 80000
+SELECT*FROM emp WHERE SALARY<60000;
+2        Ragavi  p        75000   2015-08-28       Business
+3        Gopinath c        50000   2016-02-03       Pharma
+4        Dinesh  g        50000   2016-02-03       insurance
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+29. Get employee details from employee table whose name is venkatesh and ragavi
+SELECT * FROM emp WHERE FirstName="VENKATESH" OR FirstName="RAGAVI";
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+ 
+SQL Queries Interview Questions and Answers on "SQL DATE Functions" - Examples
+ 
+30. Get employee details from employee table whose joining year is “2015”
+SELECT * FROM  emp WHERE YEAR(Joining_Date) =2015;
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+ 
+31. Get employee details from employee table whose joining month is “January”
+select * from emp where month(Joining_Date)=08;
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+5        Saibabu e        40000   2017-08-07       software
+6        Hasan   s        29000   2017-08-07       manufacturing
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+ 
+32. Get employee details from employee table who joined before January 1st 2017
+select * from emp where  Joining_Date< "2017-01-01";
+1        Venkatesh        s        100000  2015-08-28       Banking
+2        Ragavi  p        75000   2015-08-28       Business
+3        Gopinath c        50000   2016-02-03       Pharma
+4        Dinesh  g        50000   2016-02-03       insurance
+9        Sathish md       45000   2016-02-03       automobile
+10       Prasanth pkp      34000   2016-02-03       insurance
+11       Vijay   r        25684   2016-02-03       Business
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+33. Get employee details from employee table who joined after January 31st 2016
+select * from emp where  Joining_Date> "2016-01-31";
+3        Gopinath c        50000   2016-02-03       Pharma
+4        Dinesh  g        50000   2016-02-03       insurance
+5        Saibabu e        40000   2017-08-07       software
+6        Hasan   s        29000   2017-08-07       manufacturing
+7        Divya   p        33000   2017-08-07       healthcare
+8        Aravindan        r        40000   2017-08-07       healthcare
+9        Sathish md       45000   2016-02-03       automobile
+10       Prasanth pkp      34000   2016-02-03       insurance
+11       Vijay   r        25684   2016-02-03       Business
+12       Sivakumar        k        54789   2016-02-03       software
+ 
+35. Get Joining Date and Time from employee table
+ 
+36. Get Joining Date,Time including milliseconds from employee table
+37. Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
+38. Get database date
+select now();
+2019-11-30 10:30:35
+ 
+SQL Queries Interview Questions and Answers on "SQL Escape Characters" - Examples
+ 
+39. Get names of employees from employee table who has '%' in Last_Name. Tip : Escape character for special characters in a query.
+select FirstName from emp where LastName Like "%?%%";
+ 
+40. Get Last Name from employee table after replacing special character with white space
+select replace(lastName,"%"," ") from emp
+s
+p
+c
+g
+e
+s
+p
+r
+md
+pkp
+r
+	
